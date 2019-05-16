@@ -12,7 +12,10 @@ import danny from './danny.png'
 import alisa from './Alisa_all_that.jpg'
 import gio from './Gio.jpg'
 import pizza from "./Pizzaface.jpg"
+import images from "./images.json"
+// import FriendCard from "./components/FriendCard"
 import './App.css';
+
 const imgArry=[amanda,kenan,kyle,lori,nick,josh,jamie,kel,danny,alisa,gio,pizza]
 // let counter=0;
 class App extends Component {
@@ -43,12 +46,14 @@ class App extends Component {
   let counter=[this.state.counter]
   let imgGuess = [...this.state.imgGuess]
   let imgArry = [...this.state.imgArry]
-
+  
   if (imgGuess.includes(event.target.src) && counter<11){
     alert("You Lose")
   }else{
   //  console.log(event.target.src.push(imgGuess))
-      (event.target.src).push(imgGuess)
+      console.log(event.target.src)
+      console.log(imgGuess)
+      imgGuess.push(event.target.src)
   }
 }
 
@@ -104,57 +109,22 @@ class App extends Component {
       <div className="App">
 <p>Counter:{this.counter}</p>
         
+
+{/* // {this.state.images.map(image => (
+//             <p
+//               imageClick={this.imageClick}
+//               id={images.id}
+//               key={images.id}
+//               image={images.image}
+//             ></p>
+//           ))}   */}
+       
       
       {imgArry.map((image,ind)=>{
           return <img class="image" src={image} onClick={this.clickImage}></img>
-        })}
+         })} 
    
-
-
-
-      {/* <div>
-        <img class="image" src={amanda} onClick={this.clickImage}></img>
-        <img class="image"  src={kenan} onClick={this.clickImage}></img>
-        <img class="image"  src={kyle} onClick={this.clickImage}></img>
-        <img class="image"  src={lori} onClick={this.clickImage}></img>
         </div>
-        <div>
-        <img class="image" src={nick} onClick={this.clickImage}></img>
-        <img class="image"  src={josh} onClick={this.clickImage}></img>
-        <img class="image"  src={jamie} onClick={this.clickImage}></img>
-        <img class="image"  src={kel} onClick={this.clickImage}></img>
-        </div>
-        <div>
-        <img class="image" src={danny} onClick={this.clickImage}></img>
-        <img class="image"  src={alisa} onClick={this.clickImage}></img>
-        <img class="image"  src={gio} onClick={this.clickImage}></img>
-        <img class="image"  src={pizza} onClick={this.clickImage}></img>
-        </div> */}
-
-       
-        
-
-       
-
-        
-
-
-       
-
-        
-
-        --------
-
-        
-
-        
-
-        
-
-          
-        
-
-      </div>
     );
   }
 }
